@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo Tab Mount - Smart Tablet Wall Mount</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
+    body { line-height: 1.6; color: #333; background: #f5f6fa; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Sticky Navbar */
+    nav { position: sticky; top: 0; background: #fff; display: flex; justify-content: center; gap: 2rem; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000; }
+    nav a { font-weight: 500; color: #333; transition: color 0.3s; }
+    nav a:hover { color: #007BFF; }
+
+    .container { max-width: 1200px; margin: auto; padding: 2rem; }
+
+    @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+    .fade-in { opacity: 0; animation: fadeInUp 0.8s ease forwards; }
+    .fade-in.delay-1 { animation-delay: 0.2s; }
+    .fade-in.delay-2 { animation-delay: 0.4s; }
+    .fade-in.delay-3 { animation-delay: 0.6s; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 5rem 2rem; background: #ffffff; color: #333; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; font-weight: 700; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero button { background: #007BFF; color: #fff; padding: 0.9rem 2.2rem; border: none; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+    .hero button:hover { background: #0056b3; transform: scale(1.05); }
+    .hero img { margin-top: 2rem; max-width: 100%; height: auto; border-radius: 12px; }
+
+.hero-cta {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+    /* Features */
+    .features { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; justify-content: center; background: #f0f4ff; border-radius: 12px; padding: 2rem; }
+    .feature { background: #fff; padding: 2rem; border-radius: 12px; flex: 1 1 280px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .feature:hover { transform: translateY(-8px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+    .feature i { font-size: 2.2rem; color: #007BFF; margin-bottom: 1rem; }
+    .feature h3 { margin-bottom: 0.5rem; font-weight: 600; }
+    .feature p { font-size: 0.95rem; color: #555; }
+
+    /* Steps */
+    .steps { margin-top: 5rem; background: #eefaf6; padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .steps h2 { text-align: center; margin-bottom: 2.5rem; font-size: 2rem; }
+    .step { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .step-number { font-size: 1.4rem; font-weight: bold; color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #007BFF; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .step-text { flex: 1; font-size: 1rem; color: #444; }
+
+    /* Benefits */
+    .benefits { margin-top: 5rem; text-align: center; background: #fff3e6; padding: 3rem 2rem; border-radius: 12px; }
+    .benefits h2 { margin-bottom: 2rem; font-size: 2rem; }
+    .benefits p { max-width: 750px; margin: auto; font-size: 1.05rem; color: #555; }
+
+    /* Testimonials */
+    .testimonials { margin-top: 5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; background: #f9f9ff; padding: 2rem; border-radius: 12px; }
+    .testimonial { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); font-style: italic; transition: transform 0.3s ease; }
+    .testimonial:hover { transform: scale(1.02); }
+    .testimonial p { color: #555; }
+
+    /* Pricing */
+    .pricing { margin-top: 5rem; text-align: center; background: #eaf2ff; padding: 3rem 2rem; border-radius: 12px; }
+    .pricing h2 { margin-bottom: 2rem; font-size: 2rem; }
+    .price { font-size: 2rem; font-weight: bold; color: #007BFF; margin-bottom: 1rem; }
+    .pricing button { background: #007BFF; color: #fff; padding: 0.9rem 2.2rem; border: none; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+    .pricing button:hover { background: #0056b3; transform: scale(1.05); }
+
+    footer { background: #222; color: #ddd; padding: 2.5rem; text-align: center; margin-top: 5rem; }
+    footer a { color: #00C9FF; margin: 0 0.5rem; transition: 0.3s; }
+    footer a:hover { color: #fff; }
+    footer i { margin: 0 0.5rem; }
+
+    @media(max-width: 768px) {
+      nav { flex-wrap: wrap; gap: 1rem; }
+      .features { flex-direction: column; }
+      .step { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#features">Features</a>
+    <a href="#steps">Setup</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#footer">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero fade-in">
+    <h1>The Smartest Way to Wall-mount a Tablet</h1>
+    <p>Magnetic tablet mount with a smart power supply, designed to be mounted in standard EU wall box.<br>ESP32-C3 and ESPHome firmware for Seamless Home Assistant integration.</p>
+    <div class="hero-cta">
+      <button>Pre-order Now</button>
+    </div>
+    <img src="images/plate_exp_anim.gif" alt="Tablet Mount Hero">
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="container features">
+    <div class="feature fade-in delay-1">
+      <i class="fas fa-magnet"></i>
+      <h3>Magnetic Docking</h3>
+      <p>Attach and remove your tablet effortlessly without cables or clips.</p>
+    </div>
+    <div class="feature fade-in delay-2">
+      <i class="fas fa-bolt"></i>
+      <h3>Integrated Smart Power</h3>
+      <p>5 V supply powered by ESP32-C3 running ESPHome for smart charging and automation.</p>
+    </div>
+    <div class="feature fade-in delay-3">
+      <i class="fas fa-home"></i>
+      <h3>Home Assistant Ready</h3>
+      <p>Seamless integration with Home Assistant for full smart home control.</p>
+    </div>
+    <div class="feature fade-in">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Custom LEDs & Sensors</h3>
+      <p>Optional status lights and sensor triggers for automation and alerts.</p>
+    </div>
+    <div class="feature fade-in">
+      <i class="fas fa-arrows-alt-h"></i>
+      <h3>Minimalist Design</h3>
+      <p>Slim &lt;5 mm gap gives a floating look while keeping your wall clean.</p>
+    </div>
+    <div class="feature fade-in">
+      <i class="fas fa-eu"></i>
+      <h3>EU Box Compatible</h3>
+      <p>Designed to fit standard EU wall installation boxes with ease.</p>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="steps" class="container steps fade-in">
+    <h2>Setup in Minutes</h2>
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-text">Install mount in standard EU wall box</div>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-text">Attach tablet magnetically</div>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-text">Connect to ESPHome/Home Assistant for smart control</div>
+    </div>
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-text">Optional: Configure LEDs or sensors for automation</div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="container benefits fade-in">
+    <h2>Your Smart Home, Smarter and Sleeker</h2>
+    <p>Elegant floating look enhances interior design. Central control panel for all your smart home devices. Easy DIY installation or professional integration. Reliable, premium-quality components.</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="container testimonials">
+    <div class="testimonial fade-in">
+      <p>"Finally, a mount that looks as good as it works. The ESPHome integration is seamless!" – Laura, Germany</p>
+    </div>
+    <div class="testimonial fade-in delay-1">
+      <p>"Magnetic docking is super convenient. My smart home dashboard has never looked better." – Tom, Netherlands</p>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="container pricing fade-in">
+    <h2>Get Yours Today</h2>
+    <p class="price">€35 – €90</p>
+    <p>Choose your version: Plate only, Plate + PSU, or Plate + PSU + LEDs. Bundle deals available.</p>
+    <button>Pre-order Now</button>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>© 2025 Modo Tab Mount</p>
+    <div>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p><a href="#">About</a> | <a href="#">FAQ</a> | <a href="#">Support</a> | <a href="#">Contact</a></p>
+  </footer>
+
+</body>
+</html>
